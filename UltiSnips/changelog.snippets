@@ -1,0 +1,30 @@
+snippet xpversion "Version section" b
+Version ${1:X}.${2:Y}.${3:Z}, released `!v strftime("%Y-%m-%d")`
+-----------------------------------
+SVN version: ${4:revision}
+
+
+endsnippet
+
+snippet xpheads "Heads up! headline" b
+Heads up!
+~~~~~~~~~
+
+endsnippet
+
+snippet xpbugs "Bugs headline" b
+Bugfixes
+~~~~~~~~
+
+endsnippet
+
+snippet xpfeatures "Features headline" b
+Features
+~~~~~~~~
+
+endsnippet
+
+snippet xpchange "Change description" b
+- ${1:text...}
+  (${2:user})
+endsnippet
