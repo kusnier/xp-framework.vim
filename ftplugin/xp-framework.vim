@@ -6,12 +6,12 @@
 
 " adjust indenting
 " see: http://developer.xp-framework.net/xml/static?cs/xp_whitespace
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set smarttab
-set smartindent
+setlocal expandtab
+setlocal shiftwidth=2
+setlocal softtabstop=2
+setlocal tabstop=2
+setlocal smarttab
+setlocal smartindent
 
 " adjust path
 " This is a list of directories which will be searched when using
