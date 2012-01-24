@@ -1,8 +1,15 @@
 " Vim filetype plugin
-" Language:   xp-framework
+" Language:     xp-framework
 " Author:       Sebastian Kusnier <seek@matrixcode.de>
 " Version:      1.0.2
 " License:      MIT
+
+let g:xp_global_inc= [
+  \'~/devel/xp-framework/core/src/main/php',
+  \'~/devel/xp-framework/tools/src/main/php'
+\]
+
+let g:xp_project_inc= []
 
 " adjust indenting
 " see: http://developer.xp-framework.net/xml/static?cs/xp_whitespace
@@ -23,12 +30,12 @@ setlocal suffixesadd=.class.php
 
 setlocal path=.,src
 
-if isdirectory(expand("~/devel/xp-framework/core/src/main/php"))
-  setlocal path+=~/devel/xp-framework/core/src/main/php
-endif
+for inc in g:xp_global_inc + g:xp_project_inc
+  if isdirectory(expand(inc))
+    let cmd = 'setlocal path+=' . escape(inc, '\ ')
+    execute cmd
+  endif
+endfor
 
-if isdirectory(expand("~/devel/xp-framework/tools/src/main/php"))
-  setlocal path+=~/devel/xp-framework/tools/src/main/php
-endif
 
 " vim:set sw=2:
