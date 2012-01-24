@@ -9,7 +9,7 @@ let g:xp_global_inc= [
   \'~/devel/xp-framework/tools/src/main/php'
 \]
 
-let g:xp_project_inc= []
+let g:xp_project_inc= ['./src']
 
 " adjust indenting
 " see: http://developer.xp-framework.net/xml/static?cs/xp_whitespace
