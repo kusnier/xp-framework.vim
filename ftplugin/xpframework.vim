@@ -28,14 +28,26 @@ setlocal include=^\\s\\+'\\(\\w\\+\\.\\)\\+\\w\\+'\\,\\?$
 setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 setlocal suffixesadd=.class.php
 
-setlocal path=.,src
-
-for inc in g:xp_global_inc + g:xp_project_inc
-  if isdirectory(expand(inc))
-    let cmd = 'setlocal path+=' . escape(inc, '\ ')
+function! xpframework#SetPath(path)
+  if isdirectory(expand(a:path))
+    let cmd = 'setlocal path+=' . escape(a:path, '\ ')
     execute cmd
   endif
+endfunction
+
+setlocal path=.
+
+for inc in g:xp_project_inc + g:xp_global_inc
+  call xpframework#SetPath(inc)
 endfor
 
+" Load path files
+exec 'silent! vimgrep /.*/j *.pth'
+let qflist = getqflist()
+if len(qflist) > 0
+  for field in qflist
+    call xpframework#SetPath(field['text'])
+  endfor
+endif
 
 " vim:set sw=2:
