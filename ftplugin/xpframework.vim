@@ -42,12 +42,10 @@ for inc in g:xp_project_inc + g:xp_global_inc
 endfor
 
 " Load path files
-exec 'silent! vimgrep /.*/j *.pth'
-let qflist = getqflist()
-if len(qflist) > 0
-  for field in qflist
-    call xpframework#SetPath(field['text'])
+for fn in split(glob('*.pth'))
+  for line in readfile(fn)
+    call xpframework#SetPath(line)
   endfor
-endif
+endfor
 
 " vim:set sw=2:
