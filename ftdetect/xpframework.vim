@@ -1,6 +1,6 @@
 " xp-framework.vim - file type detect plugin for vim which detects xp-framework
 " Author:       Sebastian Kusnier <seek@matrixcode.de>
-" Version:      1.0.2
+" Version:      1.0.3
 " License:      MIT
 "
 " Install via pathogen by cloning/adding submodule in ~/.vim/bundle or
