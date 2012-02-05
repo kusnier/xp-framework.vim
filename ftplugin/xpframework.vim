@@ -34,7 +34,6 @@ function! s:SetPath(path)
   if isdirectory(expand(a:path))
     let cmd = 'setlocal path+=' . escape(a:path, '\ ')
     execute cmd
-" TODO: generate tags file
   endif
 endfunction
 
@@ -61,7 +60,6 @@ function! s:GenerateTags(tagsfile, dir)
 endfunction
 
 setlocal path=.
-setlocal tags=
 
 for inc in g:xp_project_inc + g:xp_global_inc
   call s:SetPath(inc)
@@ -73,11 +71,6 @@ for fn in split(glob('*.pth'))
     call s:SetPath(line)
   endfor
 endfor
-
-" Set tags file
-let cmd = 'setlocal tags='.s:GetProjectPath().'/tags'
-execute cmd
-
 
 function! s:GenerateXpTags()
   let cmd = 'lcd '.s:GetProjectPath()
