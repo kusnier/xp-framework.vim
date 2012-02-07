@@ -23,6 +23,16 @@ setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 setlocal suffixesadd=.class.php
 
 
+setlocal comments=s1:/*,mb:*,ex:*/,://,:#
+
+setlocal formatoptions-=t
+setlocal formatoptions+=q
+setlocal formatoptions+=r
+setlocal formatoptions+=o
+setlocal formatoptions+=w
+setlocal formatoptions+=c
+setlocal formatoptions+=b
+
 function! s:SetPath(path)
   if isdirectory(expand(a:path))
     let cmd = 'setlocal path+=' . escape(a:path, '\ ')
