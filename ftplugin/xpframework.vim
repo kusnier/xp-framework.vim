@@ -1,7 +1,7 @@
 " Vim filetype plugin
 " Language:     xp-framework
 " Author:       Sebastian Kusnier <seek@matrixcode.de>
-" Version:      1.0.3
+" Version:      1.0.4
 " License:      MIT
 
 
