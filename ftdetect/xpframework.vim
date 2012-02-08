@@ -8,7 +8,7 @@
 "
 function xpframework#DetectXPFramework()
   if getline(2) =~ '^\/\* This class is part of the XP framework$'
-    set ft=php.xpframework syntax=php
+    set ft=php.xpframework syntax=xpframework
   endif
 endfunction
 
