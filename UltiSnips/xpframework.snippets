@@ -232,13 +232,13 @@ snippet xpute "unittest function, expect exception" b
  * ${1:Add description here}
  *
  */
- #[@test, @expect('${2:Exception}')]
-public function ${3:testMethod}() {
-  ${4:// code...}
+ #[@test, @expect(class= '${2:lang.IllegalArgumentException}'${3:, withMessage= '${4:message}'})]
+public function ${5:testMethod}() {
+  ${6:// code...}
 }
 endsnippet
 
-snippet xputb "unittest setup function" b
+snippet xputb "unittest setup (MockConnection)" b
 /**
  * Setup
  *
@@ -254,6 +254,32 @@ public static function beforeClass() {
   $cm->register(DriverManager::getConnection('mock://host/database?autoconnect=1'), '${1:dbname}', '');
 
 }
+endsnippet
+
+snippet xputb "unittest setup function (@beforeClass)" b
+/**
+ * Cleanup
+ *
+ */
+#[@beforeClass]
+public static function ${1:beforeMethod}() {
+  ${2:// code...}
+}
+endsnippet
+
+snippet xputa "unittest cleanup function (@afterClass)" b
+/**
+ * Cleanup
+ *
+ */
+#[@afterClass]
+public static function ${1:afterMethod}() {
+  ${2:// code...}
+}
+endsnippet
+
+snippet xputex"unittest @expect annotation"
+#[@test, @expect(class= '${1:lang.IllegalArgumentException}'${2:, withMessage= '${3:message}'})]
 endsnippet
 
 snippet xppcon "" b
