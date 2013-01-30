@@ -31,6 +31,10 @@ class ${2:ClassName} extends ${3:Object} {
 }
 endsnippet
 
+snippet dbcon "Database conneciton (Connection Manager)" b
+$db= ConnectionManager::getInstance()->getByHost('${1:conname}', 0);
+endsnippet
+
 snippet xpfunc "function, no params" b
 /**
  * ${1:Description}
